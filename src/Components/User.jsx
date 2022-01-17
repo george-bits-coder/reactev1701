@@ -16,6 +16,7 @@ export const User = () => {
       return flag;
     }
   );
+  const dispatch = useDispatch();
   const [form1, setForm1] = useState({});
   const handleinp = ({ target: { name, value } }) => {
     setForm1({ ...form1, [name]: value });
@@ -36,8 +37,8 @@ export const User = () => {
           <button
             onClick={() => {
               alert("successfully applied for job");
-              console.log(form1.username, e);
-              applyjobs({ n: form1.username, j: e });
+             
+              dispatch(applyjobs({ n: form1.username, j: e }));
             }}
           >
             Apply
